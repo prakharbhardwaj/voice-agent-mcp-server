@@ -1,0 +1,23 @@
+{
+  "name": "deepgram-voice-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@fastify/formbody": "^8.0.0",
+    "@fastify/websocket": "^11.0.0",
+    "dotenv": "^16.4.5",
+    "fastify": "^5.0.0",
+    "ws": "^8.18.0"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/ws": "^8.5.12",
+    "nodemon": "^3.1.9"
+  }
+}
