@@ -1,5 +1,5 @@
 {
-  "name": "deepgram-voice-bot",
+  "name": "twilio-deepgram-voice-assistant",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
