@@ -68,12 +68,19 @@ With the server running, call your Twilio phone number. Once the call connects, 
 
 ```
 .
-├── README.md
-├── SettingsConfiguration.js # Contains Deepgram configuration utilities
-├── functionCall.js          # Handles AI function calls
-├── index.js                 # Main application logic
-├── package-lock.json
-└── package.json
+├── index.js
+└── src
+    ├── config
+    │   └── dotenv.js
+    ├── routes
+    │   ├── rootRoute.js
+    │   └── twilioRoute.js
+    ├── services
+    │   ├── functionCall.js
+    │   └── functionCallHandler.js
+    ├──websockets
+    │   └── mediaStreamHandler.js
+    └── SettingsConfiguration.js
 ```
 
 ## How It Works
@@ -87,7 +94,7 @@ With the server running, call your Twilio phone number. Once the call connects, 
 
 For a step-by-step guide to building this application, check out our Medium article:
 
-[Building an AI Voice Assistant with Deepgram Voice Agent API and Twilio](https://medium.com/@prakhar.bhardwaj/building-an-ai-voice-assistant-with-deepgram-voice-agent-api-and-twilio-c8dcdc77dc23)
+[Build an AI Voice Assistant with Deepgram Voice Agent API and Twilio: A Step-by-Step Guide](https://medium.com/@prakhar.bhardwaj/building-an-ai-voice-assistant-with-deepgram-voice-agent-api-and-twilio-c8dcdc77dc23)
 
 ## Resources
 
