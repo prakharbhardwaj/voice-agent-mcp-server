@@ -2,6 +2,10 @@
 
 This project demonstrates integrating Twilio Media Streams with Deepgram’s Voice Agent API to create an AI-powered voice assistant. The system captures real-time audio from a Twilio call, processes it through Deepgram’s AI to generate a response, and streams the response back to the caller.
 
+## Demo video
+
+https://github.com/user-attachments/assets/b5f6dbe6-1c77-425a-937a-ae952ed9e3b5
+
 ## Prerequisites
 
 To set up and run the application, you'll need:
