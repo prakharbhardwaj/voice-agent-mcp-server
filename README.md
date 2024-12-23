@@ -87,7 +87,7 @@ With the server running, call your Twilio phone number. Once the call connects, 
 
 For a step-by-step guide to building this application, check out our Medium article:
 
-[Building an AI Voice Assistant with Deepgram Voice Agent API and Twilio]()
+[Building an AI Voice Assistant with Deepgram Voice Agent API and Twilio](https://medium.com/@prakhar.bhardwaj/building-an-ai-voice-assistant-with-deepgram-voice-agent-api-and-twilio-c8dcdc77dc23)
 
 ## Resources
 
