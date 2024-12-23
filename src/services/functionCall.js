@@ -1,5 +1,9 @@
-export const getWeatherFromCityName = async (city, apiKey) => {
-  const response = await fetch(`https://api.weatherapi.com/v1/current.json?q=${city}&key=${apiKey}`);
+import { WEATHER_API_KEY } from "../config/dotenv.js";
+
+export const getWeatherFromCityName = async (city) => {
+  console.log("getWeatherFromCityName", city, WEATHER_API_KEY);
+
+  const response = await fetch(`https://api.weatherapi.com/v1/current.json?q=${city}&key=${WEATHER_API_KEY}`);
   const text = await response.text();
   const data = JSON.parse(text);
 
