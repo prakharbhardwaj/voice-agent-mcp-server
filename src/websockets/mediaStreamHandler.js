@@ -13,7 +13,7 @@ export default function mediaStreamHandler(fastify) {
       let latestMediaTimestamp = 0;
 
       // Initialize Deepgram WebSocket
-      const deepgramWs = new WebSocket("wss://agent.deepgram.com/agent", {
+      const deepgramWs = new WebSocket("wss://agent.deepgram.com/v1/agent/converse", {
         headers: {
           Authorization: "Token " + DEEPGRAM_API_KEY
         }
@@ -63,7 +63,7 @@ export default function mediaStreamHandler(fastify) {
                 deepgramWs.send(
                   JSON.stringify({
                     type: "InjectAgentMessage",
-                    message: "Hello, I am an AI Assistant. I can help you with weather information."
+                    content: "Hello, I am an AI Assistant. I can help you with weather information."
                   })
                 );
                 break;
@@ -76,7 +76,7 @@ export default function mediaStreamHandler(fastify) {
                 break;
               case "FunctionCallRequest":
                 console.log("[Deepgram] Function call request: ", response);
-                await handleFunctionCall(response, deepgramWs);
+                await handleFunctionCall(response.functions, deepgramWs);
                 break;
               default:
                 console.log("[Deepgram] Response received: ", response);

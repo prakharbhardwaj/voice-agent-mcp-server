@@ -1,5 +1,5 @@
 export const SettingsConfiguration = {
-  type: "SettingsConfiguration",
+  type: "Settings",
   audio: {
     input: {
       encoding: "mulaw",
@@ -12,15 +12,16 @@ export const SettingsConfiguration = {
     }
   },
   agent: {
+    language: "en",
     listen: {
-      model: "nova-2"
+      provider: { type: "deepgram", model: "nova-3" }
     },
     think: {
       provider: {
-        type: "open_ai" // https://developers.deepgram.com/docs/voice-agent-llm-models#supported-llm-providers-and-models
+        type: "open_ai", // https://developers.deepgram.com/docs/voice-agent-llm-models#supported-llm-providers-and-models
+        model: "gpt-4o-mini"
       },
-      model: "gpt-4o-mini",
-      instructions: "You are a helpful assistant that can provide weather information. Please provide the weather information for a city.",
+      prompt: "You are a helpful assistant that can provide weather information. Please provide the weather information for a city.",
       functions: [
         {
           name: "getWeatherFromCityName",
@@ -39,7 +40,7 @@ export const SettingsConfiguration = {
       ]
     },
     speak: {
-      model: "aura-asteria-en"
+      provider: { type: "deepgram", model: "aura-2-asteria-en" }
     }
   }
 };

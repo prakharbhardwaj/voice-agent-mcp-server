@@ -1,14 +1,18 @@
 import { getWeatherFromCityName } from "./functionCall.js";
 
-export async function handleFunctionCall(response, deepgramWs) {
+export async function handleFunctionCall(functions, deepgramWs) {
   try {
-    if (response.function_name === "getWeatherFromCityName") {
-      const weatherInfo = await getWeatherFromCityName(response.input.city);
+    const funct = functions?.[0];
+    if (funct.name === "getWeatherFromCityName") {
+      const functArguments = JSON.parse(funct?.arguments);
+
+      const weatherInfo = await getWeatherFromCityName(functArguments.city);
 
       const functionCallResponse = {
         type: "FunctionCallResponse",
-        function_call_id: response.function_call_id,
-        output: weatherInfo
+        id: funct.id,
+        name: "getWeatherFromCityName",
+        content: weatherInfo
       };
 
       console.log("Sending FunctionCallResponse:", functionCallResponse);
