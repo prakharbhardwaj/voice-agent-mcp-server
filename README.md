@@ -260,9 +260,6 @@ Enable detailed logging by checking the console output and `src/mcp/mcp-server.l
 ```bash
 # Start web server with auto-reload
 npm run dev
-
-# Start MCP server with auto-reload
-npm run mcp:dev
 ```
 
 ### Adding New Tools
