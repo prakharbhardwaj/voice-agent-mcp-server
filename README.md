@@ -22,17 +22,29 @@ A powerful **Model Context Protocol (MCP) server** that integrates **Twilio Voic
 
 ## Architecture
 
-```
-┌─────────────────┐    ┌──────────────────────────────┐    ┌─────────────────┐
-│   Claude/AI     │◄──►│           MCP Server         │◄──►│  Twilio Voice   │
-│   Assistant     │    │ (Voice Assistant MCP Server) │    │    Service      │
-└─────────────────┘    └──────────────────────────────┘    └─────────────────┘
-                                        │
-                                        ▼
-                              ┌──────────────────┐
-                              │   Deepgram AI    │
-                              │ Speech Processing│
-                              └──────────────────┘
+```mermaid
+sequenceDiagram
+    participant Claude as AI Assistant
+    participant MCP as MCP Server
+    participant Twilio as Twilio Voice
+    participant Deepgram as Deepgram AI
+
+    %% Step 1: Initiate interaction
+    Claude->>MCP: Initiate voice action (e.g., interview, notification)
+    MCP->>Twilio: Setup voice call
+    Twilio-->>MCP: Call status updates
+
+    %% Step 2: Real-time audio processing
+    Twilio->>MCP: Start audio stream
+    MCP->>Deepgram: Transmit audio
+    Deepgram-->>MCP: Transcribed text
+    MCP->>Claude: Forward transcription
+    Claude->>MCP: Generate response
+    MCP->>Twilio: Send voice response
+
+    %% Step 3: Complete call
+    Twilio-->>MCP: Call completed
+    MCP->>Claude: Final status update
 ```
 
 ## Prerequisites
