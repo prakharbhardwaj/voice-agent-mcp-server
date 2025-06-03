@@ -21,20 +21,20 @@ export const SettingsConfiguration = {
         type: "open_ai", // https://developers.deepgram.com/docs/voice-agent-llm-models#supported-llm-providers-and-models
         model: "gpt-4o-mini"
       },
-      prompt: "You are a helpful assistant that can provide weather information. Please provide the weather information for a city.",
+      prompt: "[DYNAMIC_PROMPT]",
       functions: [
         {
-          name: "getWeatherFromCityName",
-          description: "Get the weather from the given city name",
+          name: "end_call",
+          description: "Ends the call with the user",
           parameters: {
             type: "object",
             properties: {
-              city: {
+              reason: {
                 type: "string",
-                description: "The city name to get the weather from"
+                description: "The reason for ending the call"
               }
             },
-            required: ["city"]
+            required: ["reason"]
           }
         }
       ]
