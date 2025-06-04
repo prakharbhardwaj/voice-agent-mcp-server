@@ -2,6 +2,10 @@
 
 A powerful **Model Context Protocol (MCP) server** that integrates **Twilio Voice**, **Deepgram AI**, and **OpenAI** to create intelligent voice-based HR automation tools. This system enables AI assistants like Claude to conduct phone interviews, deliver notifications, and manage HR communications through natural voice conversations.
 
+## Demo video
+
+https://github.com/user-attachments/assets/6c47a8b7-7428-4711-bf26-00d5951ec66f
+
 ## Features
 
 ### Core Capabilities
