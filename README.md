@@ -284,6 +284,39 @@ npm run dev
 4. Add tests if applicable
 5. Submit a pull request
 
+## Known Issues
+
+### ES Module Compatibility with Claude Desktop
+
+If you encounter `SyntaxError: Unexpected identifier` when using this MCP server with Claude Desktop, this is due to Claude Desktop not having access to the same PATH environment or working directory context as your terminal.
+
+**Root Cause**: Claude Desktop may not find the same Node.js binary that you use in your terminal (especially with nvm), or it may not run from the project directory where it can find the `package.json` with `"type": "module"`.
+
+**Solution**: Use the absolute path to your Node.js binary in your Claude Desktop configuration:
+
+```json
+{
+  "mcpServers": {
+    "voice-agent-mcp-server": {
+      "type": "stdio",
+      "command": "/Users/yourusername/.nvm/versions/node/v22.16.0/bin/node",
+      "args": ["/path/to/your/project/mcp-server.js"],
+      "env": {
+        // ... your environment variables
+      }
+    }
+  }
+}
+```
+
+**Key points:**
+
+- Use absolute path to Node.js binary (find yours with `which node`)
+- Set `cwd` to your project directory so Node.js can find `package.json`
+- This ensures Claude Desktop uses the correct Node.js and project context
+
+**Related Issue**: [MCP Servers Issue #64](https://github.com/modelcontextprotocol/servers/issues/64)
+
 ## Support
 
 For issues and questions:
